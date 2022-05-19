@@ -16,21 +16,19 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   document.getElementById("output").style.visibility = "visible";
-  
-  const kiloG = inputValue.value;
+  const kG = inputValue.value;
   const output = document.getElementById("output");
-  const lb = document.createElement("div");
-  lb.innerHTML = Math.floor(kiloG) * 2.2046 + ` pounds`;
-  output.appendChild(lb);
+
+  const poundsLb = document.createElement("div");
+  poundsLb.innerHTML = Math.floor(kG) * 2.2046 + ` pounds`;
+  output.appendChild(poundsLb);
+
+  const gramKg = document.createElement("div");
+  gramKg.innerHTML = Math.floor(kG) / 0.001 + ` grams`;
+  output.appendChild(gramKg);
+
+  const uncijosOz = document.createElement("div");
+  uncijosOz.innerHTML = Math.floor(kG) * 35.274 + ` ounces`;
+  output.appendChild(uncijosOz);
 });
-
-//     document.getElementById("output").style.visibility = "visible";
-  
-  
-// console.log(output)
-//   document.getElementById("lbOutput").innerHTML = kg * 2.2046;
-
-//   document.getElementById("gOutput").innerHTML = kg / 0.0010000;
-
-//   document.getElementById("ozOutput").innerHTML = kg * 35.274;
 
