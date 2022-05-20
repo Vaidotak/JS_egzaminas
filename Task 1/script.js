@@ -8,32 +8,39 @@ pamatyti jo pateikto svorio kovertavimą į:
 Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 <div id="output"></div> viduje, bei turi turėti bent minimalų stilių;
 ------------------------------------------------------------------- */
-document.getElementById("output").style.visibility = "hidden";
-
 const inputValue = document.getElementById("search");
 const form = document.querySelector("form");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  document.getElementById("output").style.visibility = "visible";
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
   const kG = inputValue.value;
-  const output = document.getElementById("output");
-  output.classList.add("output");
+  if (!Math.floor(kG)) {
+    alert("Ane? Reikia įvesti skaičių");
+  } else {
+    const output = document.getElementById("output");
+    clearOutput("output");
+    output.classList.add("output");
 
-  const poundsLb = document.createElement("div");
-  poundsLb.innerHTML = Math.floor(kG) * 2.2046 + ` pounds`;
-  output.appendChild(poundsLb);
+    const poundsLb = document.createElement("div");
+    poundsLb.innerHTML = Math.floor(kG) * 2.2046 + ` pounds`;
+    output.appendChild(poundsLb);
 
-  const gramKg = document.createElement("div");
-  gramKg.innerHTML = Math.floor(kG) / 0.001 + ` grams`;
-  output.appendChild(gramKg);
+    const gramKg = document.createElement("div");
+    gramKg.innerHTML = Math.floor(kG) / 0.001 + ` grams`;
+    output.appendChild(gramKg);
 
-  const uncijosOz = document.createElement("div");
-  uncijosOz.innerHTML = Math.floor(kG) * 35.274 + ` ounces`;
-  output.appendChild(uncijosOz);
+    const uncijosOz = document.createElement("div");
+    uncijosOz.innerHTML = Math.floor(kG) * 35.274 + ` ounces`;
+    output.appendChild(uncijosOz);
 
-  // Googlinau, neradau, tai pats išmąsčiau! Didžiuojuosi savimi :)
-  let varDiv = [poundsLb, gramKg, uncijosOz];
-  varDiv.forEach((element) => element.classList.add("context-element"));
+    // Googlinau, neradau, tai pats išmąsčiau! Didžiuojuosi savimi :)
+    let varDiv = [poundsLb, gramKg, uncijosOz];
+    varDiv.forEach((element) => element.classList.add("context-element"));
+
+    function clearOutput(output) {
+      document.getElementById("output").innerHTML = "";
+    }
+  }
 });
 
