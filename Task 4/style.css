@@ -27,3 +27,27 @@
   margin-top: 50px;
   color: #333;
 }
+
+.myStyle {
+  background-color: rgb(255, 170, 139);
+  padding: 10px;
+  margin: 1%;
+  border-radius: 10px;
+}
+
+.myStyle:hover {
+  background-color: rgba(154, 255, 139, 0.73);
+  padding: 10px;
+}
+
+.brandName {
+  color: rgba(35, 56, 75, 0.866);
+}
+
+.brandName:hover {
+  background-color: rgb(255, 170, 139);
+}
+
+.modelName {
+  font-weight: bold;
+}
