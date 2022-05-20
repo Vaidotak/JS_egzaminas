@@ -35,4 +35,4 @@ function getUsersNames(un) {
   return newArray;
 }
 
-console.log(getUsersNames(un));
+console.log(getUsersNames(users));
