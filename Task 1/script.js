@@ -18,21 +18,22 @@ form.addEventListener("submit", (e) => {
   document.getElementById("output").style.visibility = "visible";
   const kG = inputValue.value;
   const output = document.getElementById("output");
-  output.classList.add('output')
+  output.classList.add("output");
 
   const poundsLb = document.createElement("div");
-  poundsLb.classList.add('context-element')
   poundsLb.innerHTML = Math.floor(kG) * 2.2046 + ` pounds`;
   output.appendChild(poundsLb);
 
   const gramKg = document.createElement("div");
-  gramKg.classList.add('context-element')
   gramKg.innerHTML = Math.floor(kG) / 0.001 + ` grams`;
   output.appendChild(gramKg);
 
   const uncijosOz = document.createElement("div");
-  uncijosOz.classList.add('context-element')
   uncijosOz.innerHTML = Math.floor(kG) * 35.274 + ` ounces`;
   output.appendChild(uncijosOz);
+
+  // Googlinau, neradau, tai pats išmąsčiau! Didžiuojuosi savimi :)
+  let varDiv = [poundsLb, gramKg, uncijosOz];
+  varDiv.forEach((element) => element.classList.add("context-element"));
 });
 
