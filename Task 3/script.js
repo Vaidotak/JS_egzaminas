@@ -18,13 +18,19 @@ button.addEventListener("click", () => {
   fetch(ENDPOINT)
     .then((response) => response.json())
     .then((createCards) => {
-        createCards.forEach((info) => {
-          
-          console.log(info.login);
-          console.log(info.avatar_url);
-          
-        });
+      createCards.forEach((info) => {
+        const login = info.login;
+        const avatar = info.avatar_url;
+        const img = document.createElement("img");
+        img.classList.add("image");
+        img.src = avatar;
+        const listLogin = document.createElement("div");
+        listLogin.classList.add("login");
+        listLogin.innerHTML = login;
+
+        document.getElementById("output").append(listLogin);
+        document.getElementById("output").append(img);
       });
-
+    });
+  document.getElementById("message").style.visibility = "hidden";
 });
-
